@@ -1,0 +1,13 @@
+quarkus:
+  application:
+    name: ingest-service
+    version: 0.0.1-SNAPSHOT
+  http:
+    port: 8082
+    host: 0.0.0.0
+  tls:
+    trust-all: true
+  jooq:
+    dialect: MYSQL
+  smallrye-health:
+    root-path: /actuator

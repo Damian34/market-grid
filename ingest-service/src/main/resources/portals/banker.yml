@@ -1,0 +1,113 @@
+resources:
+  Złoto:
+    kind: METAL
+    namePl: Złoto
+    nameEng: Gold
+  Srebro:
+    kind: METAL
+    namePl: Srebro
+    nameEng: Silver
+  Platyna:
+    kind: METAL
+    namePl: Platyna
+    nameEng: Platinum
+  Pallad:
+    kind: METAL
+    namePl: Pallad
+    nameEng: Palladium
+  Miedź:
+    kind: METAL
+    namePl: Miedź
+    nameEng: Copper
+  Aluminium:
+    kind: METAL
+    namePl: Aluminium
+    nameEng: Aluminium
+  Nikiel:
+    kind: METAL
+    namePl: Nikiel
+    nameEng: Nickel
+  Ropa:
+    kind: ENERGY
+    namePl: Ropa
+    nameEng: Oil
+  Ropa WTI:
+    kind: ENERGY
+    namePl: Ropa naftowa
+    nameEng: Crude Oil
+  Benzyna:
+    kind: ENERGY
+    namePl: Benzyna
+    nameEng: Gasoline
+  Diesel:
+    kind: ENERGY
+    namePl: Diesel
+    nameEng: Diesel
+  Gaz ziemny:
+    kind: ENERGY
+    namePl: Gaz ziemny
+    nameEng: Natural Gas
+  Olej opałowy:
+    kind: ENERGY
+    namePl: Olej opałowy
+    nameEng: Heating Oil
+  Pszenica:
+    kind: CROP
+    namePl: Pszenica
+    nameEng: Wheat
+  Kukurydza:
+    kind: CROP
+    namePl: Kukurydza
+    nameEng: Corn
+  Soja:
+    kind: CROP
+    namePl: Soja
+    nameEng: Soybean
+  Ryż:
+    kind: CROP
+    namePl: Ryż
+    nameEng: Rice
+  Rzepak:
+    kind: CROP
+    namePl: Rzepak
+    nameEng: Rapeseed
+  Bawełna:
+    kind: CROP
+    namePl: Bawełna
+    nameEng: Cotton
+  Cukier:
+    kind: CROP
+    namePl: Cukier
+    nameEng: Sugar
+  Mleko:
+    kind: CROP
+    namePl: Mleko
+    nameEng: Milk
+units:
+  baryłka:
+    nameNew: hl
+    priceScalar: 1.58987
+  uncja:
+    nameNew: ounce
+    priceScalar: 1.0
+  tona:
+    nameNew: ton
+    priceScalar: 1.0
+  funt:
+    nameNew: ton
+    priceScalar: 0.000453592
+  galon:
+    nameNew: hl
+    priceScalar: 0.0378541
+  mln btu:
+    nameNew: btu
+    priceScalar: 1.0
+  buszel:
+    nameNew: hl
+    priceScalar: 0.352391
+  cetnar:
+    nameNew: hl
+    priceScalar: 0.508023
+  korzec:
+    nameNew: hl
+    priceScalar: 1.28

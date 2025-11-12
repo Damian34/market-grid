@@ -1,0 +1,16 @@
+quarkus:
+  devservices:
+    enabled: false
+  jooq:
+    dialect: H2
+  datasource:
+    db-kind: h2
+    username: sa
+    password: sa
+    jdbc:
+      url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MySQL
+  flyway:
+    migrate-at-start: true
+  log:
+    level: INFO
+

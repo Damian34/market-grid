@@ -3,6 +3,7 @@ networks:
 
 volumes:
   auth-db:
+  ingest-db:
 
 services:
   api-gateway:
@@ -15,6 +16,7 @@ services:
       SPRING_PROFILES_ACTIVE: dev
       HOME_PAGE: ${HOME_PAGE}
       URL_USER_AUTH_SERVICE: http://user-auth-service:8081
+      URL_INGEST_SERVICE: http://ingest-service:8082
       URL_EXAMPLE_SERVICE: http://example-service:8100
     networks:
       - api-network
@@ -57,6 +59,32 @@ services:
       retries: 5
       start_period: 15s
 
+  ingest-service:
+    build: ./ingest-service
+    container_name: ingest-service
+    restart: always
+    depends_on:
+      ingest-db:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+      - "8082:8082"
+    environment:
+      QUARKUS_PROFILE: dev
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      MYSQL_URI: jdbc:mysql://ingest-db:3306/ingest_db
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    networks:
+      - api-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8082/actuator" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
+
   example-service: # temporary server
     build: ./example-service
     container_name: example-service
@@ -82,6 +110,28 @@ services:
       - api-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d auth-db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ingest-db:
+    image: mysql:8.1
+    container_name: ingest-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ingest_db
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ingest-db:/var/lib/mysql
+      - ./docker/mysql-init:/docker-entrypoint-initdb.d
+    networks:
+      - api-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       timeout: 5s
       retries: 5
