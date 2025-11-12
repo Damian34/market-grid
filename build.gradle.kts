@@ -8,3 +8,9 @@ description = "Market Grid"
 repositories {
     mavenCentral()
 }
+
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+}

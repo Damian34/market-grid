@@ -27,10 +27,6 @@ class BankerResourceProviderTest {
 
     lateinit var scraper: BankerScraper
 
-    private companion object {
-        const val RESOURCE_PATH = "/portal/banker/banker_surowce_notowania.html"
-    }
-
     @BeforeEach
     fun setup() {
         currencyRepository.saveOrUpdateAll(
@@ -45,7 +41,8 @@ class BankerResourceProviderTest {
         )
         scraper = object : BankerScraper() {
             override fun fetchDocument(): Document {
-                val html = this::class.java.getResourceAsStream(RESOURCE_PATH) ?: error("Resource not found: $RESOURCE_PATH")
+                val resourcePath = "/portal/banker/banker_surowce_notowania.html"
+                val html = this::class.java.getResourceAsStream(resourcePath) ?: error("Resource not found: $resourcePath")
                 html.use {
                     return Jsoup.parse(it, "UTF-8", "")
                 }
