@@ -3,7 +3,7 @@
 - opracować wstępny szablon projektu, eventów i MVP - DONE
 - implementacja pipeline'ów weryfikujących testy – DONE
 - gateway-api, autoryzacja i obsługa użytkownika – DONE
-- ingest-service – TODO
+- ingest-service – DONE
 - resource-readmodel – TODO
 - resource-file-export – TODO
 - notification-service – TODO
