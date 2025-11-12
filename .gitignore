@@ -15,4 +15,4 @@
 
 ### Other ###
 *.log
-*.env
+.env

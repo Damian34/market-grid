@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: test
+            client-secret: test
+            scope: read:user, user:email
+        provider:
+          github:
+            authorization-uri: https://example.com/auth
+            token-uri: https://example.com/token
+            user-info-uri: https://example.com/user
+            user-name-attribute: id
+auth:
+  base-url: http://localhost:8080
+  public-paths:
+    - "/login"
+    - "/logout"
+    - "/login/**"
+    - "/oauth2/**"

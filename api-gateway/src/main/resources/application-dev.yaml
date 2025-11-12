@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: user-auth-service
+              uri: ${URL_USER_AUTH_SERVICE:http://localhost:8081}
+              predicates:
+                - Path=/login,/logout,/login/**,/oauth2/authorization/**
+            - id: example-service
+              uri: ${URL_EXAMPLE_SERVICE:http://localhost:8100}
+              predicates:
+                - Path=/api/v1/greetings/**
+
+auth:
+  service:
+    base-url: ${HOME_PAGE:http://localhost:8080}
+    user-auth-details-endpoint: ${URL_USER_AUTH_SERVICE:http://localhost:8081}/internal/user
+  public-paths:
+    - "/login"
+    - "/logout"
+    - "/login/**"
+    - "/oauth2/authorization/**"
+    - "/api/v1/greetings/hi"
+

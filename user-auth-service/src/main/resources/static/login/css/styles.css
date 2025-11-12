@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Arial;
+  color-scheme: light dark;
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f6f7f9;
+}
+
+.card {
+  width: 360px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 28px;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+p.subtitle {
+  margin-bottom: 18px;
+  color: #60646c;
+  font-size: 14px;
+}
+
+.providers {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+a.btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #e6e7eb;
+  color: #1f1f1f;
+  background: #fff;
+}
+
+a.btn:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+}
+
+.btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.btn.github {
+  background: #0f1419;
+  color: #fff;
+  border-color: #0f1419;
+}
+
+.btn.github:hover {
+  box-shadow: 0 8px 18px rgba(15,20,25,0.25);
+}
