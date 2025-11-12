@@ -9,6 +9,10 @@ spring:
               predicates:
                 - Path=/login,/logout,/login/**,/oauth2/authorization/**
             - id: example-service
+              uri: ${URL_INGEST_SERVICE:http://localhost:8082}
+              predicates:
+                - Path=/api/v1/ingest/**
+            - id: example-service
               uri: ${URL_EXAMPLE_SERVICE:http://localhost:8100}
               predicates:
                 - Path=/api/v1/greetings/**

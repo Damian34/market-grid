@@ -1,0 +1,17 @@
+quarkus:
+  datasource:
+    db-kind: mysql
+    username: ${MYSQL_USER:mysql}
+    password: ${MYSQL_PASSWORD:mysql}
+    jdbc:
+      url: ${MYSQL_URI:jdbc:mysql://localhost:3306/ingest_db}
+  flyway:
+    migrate-at-start: true
+  log:
+    level: INFO
+kafka:
+  bootstrap:
+    servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092}
+  topic:
+    retention-ms: 43200000 # 12h
+    segment-ms: 43200000 # 12h
