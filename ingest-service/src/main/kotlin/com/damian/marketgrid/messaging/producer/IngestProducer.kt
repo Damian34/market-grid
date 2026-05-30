@@ -1,7 +1,7 @@
 package com.damian.marketgrid.messaging.producer
 
 import com.damian.marketgrid.config.KafkaConfig
-import com.damian.marketgrid.messaging.KafkaTopicProduce
+import com.damian.marketgrid.messaging.KafkaTopic
 import com.damian.marketgrid.messaging.event.KafkaEvent
 import com.fasterxml.jackson.databind.ObjectMapper
 import jakarta.enterprise.context.ApplicationScoped
@@ -17,7 +17,7 @@ class IngestProducer @Inject constructor(
     private val logger = LoggerFactory.getLogger(IngestProducer::class.java)
 
     fun produce(payload: Any) {
-        val kafkaTopic = KafkaTopicProduce.of(payload)
+        val kafkaTopic = KafkaTopic.of(payload)
         val kafkaEvent = KafkaEvent.of(payload)
 
         val payloadStr = objectMapper.writeValueAsString(kafkaEvent)

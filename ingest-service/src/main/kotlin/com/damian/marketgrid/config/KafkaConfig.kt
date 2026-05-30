@@ -1,6 +1,6 @@
 package com.damian.marketgrid.config
 
-import com.damian.marketgrid.messaging.KafkaTopicProduce
+import com.damian.marketgrid.messaging.KafkaTopic
 import jakarta.annotation.PostConstruct
 import jakarta.enterprise.context.ApplicationScoped
 import org.apache.kafka.clients.admin.AdminClient
@@ -34,7 +34,7 @@ class KafkaConfig {
     @PostConstruct
     fun init() {
         producer = KafkaProducer(createProperties())
-        KafkaTopicProduce.entries.forEach { topicEntry ->
+        KafkaTopic.entries.forEach { topicEntry ->
             createOrUpdateTopic(topicEntry.topic)
         }
     }
